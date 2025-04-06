@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product Form</title>
+</head>
+<body>
+    <h1>Product Form</h1>
+
+    <!-- Product form -->
+    <form th:action="@{/updateProduct/{id}(id=${id})}" th:object="${products}" method="post">
+		
+		<label for="id">Id:</label>
+		       <input type="text" id="id" th:value="${id}"  disabled="disabled"/>
+			   <br><br>
+
+		       <label for="price">Price:</label>
+		
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" th:field="*{name}" /><br><br>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" th:field="*{price}" step="0.01" /><br><br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" th:field="*{quantity}" /><br><br>
+
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" th:field="*{brand}" /><br><br>
+
+        <label for="madein">Made In:</label>
+        <input type="text" id="madein" th:field="*{madein}" /><br><br>
+
+        
+        <button type="submit">UpdateProduct</button>
+    </form>
+
+    <!-- Link to go back to products list -->
+    <br>
+    <a href="#" th:href="@{/getAllProducts}">Back to Product List</a>
+</body>
+</html>
